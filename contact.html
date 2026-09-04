@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Booking Concierge | Noble Detailing</title>
+  <meta name="description" content="Contact Noble Detailing concierge for studio appointments and mobile on-site service bookings. Direct phone, email, and live booking requests." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact Noble Detailing | Booking Concierge" />
+  <meta property="og:description" content="Schedule your bespoke studio appointment or mobile detailing service." />
+  <meta property="og:image" content="assets/car_showcase.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Critical Base Styles (Prevents FOUC) -->
+  <style>
+    html, body { background-color: #060608; color: #f4f4f5; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .brand-mark svg { width: 18px; height: 18px; fill: #c5a059; flex-shrink: 0; }
+  </style>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. NAVIGATION BAR
+  ========================================================================== -->
+  <header class="nav-wrapper">
+    <nav class="nav-pill" aria-label="Main Navigation">
+      <a href="index.html" class="brand-mark">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#c5a059">
+          <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z"/>
+        </svg>
+        <span>NOBLE</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="tel:+16138799461" class="phone-quick">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>+1 (613) 879-9461</span>
+        </a>
+        <button class="btn btn-primary" data-open-modal data-service="Direct Contact Request">Get a Quote</button>
+      </div>
+
+      <!-- Hamburger Button for Mobile -->
+      <button class="nav-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="nav-toggle-bars"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Luxury Mobile Menu Drawer -->
+  <div class="nav-mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <ul class="nav-mobile-links">
+      <li>
+        <a href="index.html">
+          <span>Home</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </li>
+      <li>
+        <a href="services.html">
+          <span>Services &amp; Pricing</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <span>About Us</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html" class="active">
+          <span>Contact Concierge</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </li>
+    </ul>
+
+    <div class="nav-mobile-footer">
+      <a href="tel:+16138799461" class="phone-quick">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span>+1 (613) 879-9461</span>
+      </a>
+      <button class="btn btn-gold" data-open-modal data-service="Direct Contact Request">Get a Quote</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. CONTACT SUBPAGE HERO
+  ========================================================================== -->
+  <main>
+    <section class="subpage-hero">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Direct Concierge Service
+        </div>
+        <h1 class="subpage-hero-title">Reserve Your Detailing Appointment</h1>
+        <p class="subpage-hero-desc">
+          Speak directly with our detailing technicians or submit your vehicle information below. We provide mobile on-site service across the metropolitan region and private studio slots.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. CONTACT & BOOKING LAYOUT
+    ========================================================================== -->
+    <section class="section-space">
+      <div class="container">
+        <div class="contact-layout-grid">
+          <!-- Left: Contact Details & Channels -->
+          <div class="contact-info-card">
+            <div>
+              <div class="eyebrow">Direct Channels</div>
+              <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem;">Get in Touch</h3>
+              <p style="font-size: 0.9rem;">
+                Have questions regarding paint thickness, coating durability, or custom multi-car fleets? Reach out anytime.
+              </p>
+
+              <div class="contact-channels-list">
+                <div class="channel-item">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                  </div>
+                  <div class="channel-content">
+                    <h4>Direct Telephone / SMS</h4>
+                    <a href="tel:+16138799461">+1 (613) 879-9461</a>
+                  </div>
+                </div>
+
+                <div class="channel-item">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </div>
+                  <div class="channel-content">
+                    <h4>Concierge Email</h4>
+                    <a href="mailto:almasrirame444@gmail.com">almasrirame444@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="channel-item">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </div>
+                  <div class="channel-content">
+                    <h4>Operating Hours</h4>
+                    <p>Monday – Saturday: 8:00 AM – 7:00 PM<br>Sunday: By Appointment Only</p>
+                  </div>
+                </div>
+
+                <div class="channel-item">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </div>
+                  <div class="channel-content">
+                    <h4>Service Area</h4>
+                    <p>Serving Ottawa, Gatineau, Kanata, Barrhaven, Orleans, Nepean &amp; surrounding cities</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-hairline); padding-top: 1.2rem;">
+              <span style="font-size: 0.78rem; color: var(--text-muted);">
+                ✓ Spot-free mobile deionized water & power included with all mobile calls.
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Booking Form -->
+          <div class="contact-form-box">
+            <div class="eyebrow">Online Reservation</div>
+            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.4rem;">Submit Details</h3>
+            <p style="font-size: 0.88rem; margin-bottom: 1.4rem;">
+              Book instantly with live studio calendar availability or fill out the inquiry form below.
+            </p>
+
+            <!-- Direct Square Booking Link Button -->
+            <a href="https://book.squareup.com/appointments/aviw9iwklbozex/location/LPQ4VRJF58DM6/services" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; padding: 0.85rem 1.2rem; font-size: 0.92rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35); margin-bottom: 1.4rem;">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Instant Online Booking on Square</span>
+            </a>
+
+            <!-- Divider -->
+            <div style="display: flex; align-items: center; gap: 0.8rem; margin: 1.4rem 0; opacity: 0.6;">
+              <div style="flex: 1; height: 1px; background: var(--border-hairline);"></div>
+              <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">or submit custom vehicle details</span>
+              <div style="flex: 1; height: 1px; background: var(--border-hairline);"></div>
+            </div>
+
+            <form id="contactPageForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 1.2rem;">
+              <input type="hidden" name="form-name" value="contact" />
+              <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
+              <div class="form-grid-2col">
+                <div>
+                  <label class="form-label-clean">Your Name</label>
+                  <input type="text" name="name" class="form-control-clean" placeholder="Alexander Vance" required />
+                </div>
+                <div>
+                  <label class="form-label-clean">Phone Number</label>
+                  <input type="tel" name="phone" class="form-control-clean" placeholder="(555) 234-5678" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2col">
+                <div>
+                  <label class="form-label-clean">Email Address</label>
+                  <input type="email" name="email" class="form-control-clean" placeholder="alexander@example.com" required />
+                </div>
+                <div>
+                  <label class="form-label-clean">Vehicle Make & Model</label>
+                  <input type="text" name="vehicle" class="form-control-clean" placeholder="e.g. 2024 Porsche 911 GT3" required />
+                </div>
+              </div>
+
+              <div>
+                <label class="form-label-clean">Select Desired Package</label>
+                <select name="package" class="form-control-clean" required>
+                  <option value="The Noble Full Royal Package (CA$239)">The Noble Full Royal Package — CA$239</option>
+                  <option value="Interior Deep Detail (CA$139)">Interior Deep Detail — CA$139</option>
+                  <option value="Interior & Exterior Detail (CA$179)">Interior & Exterior Detail — CA$179</option>
+                  <option value="The Mirror Finish (Polish & Ceramic) (CA$599)">The Mirror Finish (Polish & Ceramic) — CA$599</option>
+                  <option value="Exterior Essentials Wash (CA$49)">Exterior Essentials Wash — CA$49</option>
+                  <option value="Decontamination & Wax (CA$79)">Decontamination & Wax — CA$79</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label-clean">Service Preference & Address / City</label>
+                <input type="text" name="location" class="form-control-clean" placeholder="e.g. Mobile Driveway (Toronto) or Studio Drop-off" required />
+              </div>
+
+              <div>
+                <label class="form-label-clean">Special Notes / Paint Condition (Optional)</label>
+                <textarea name="notes" class="form-control-clean" rows="3" placeholder="Describe any heavy pet hair, deep scratches, or prior ceramic coatings..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 0.5rem;">
+                Submit Reservation Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       4. FOOTER
+  ========================================================================== -->
+  <footer class="footer-clean">
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <div class="brand-mark" style="margin-bottom: 0.5rem;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#c5a059"><path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z"/></svg>
+            <span>NOBLE DETAILING</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Precision Automotive Artistry & Ceramic Protection.</p>
+        </div>
+        <div style="display: flex; gap: 2rem; font-size: 0.85rem; color: var(--text-secondary);">
+          <a href="tel:+16138799461">📞 +1 (613) 879-9461</a>
+          <a href="mailto:almasrirame444@gmail.com">✉️ almasrirame444@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Service Area Strip -->
+      <div class="footer-service-area">
+        <div class="footer-service-area-label">Areas We Serve</div>
+        <div class="footer-cities-row">
+          <span class="footer-city-pill">Ottawa</span>
+          <span class="footer-city-pill">Gatineau</span>
+          <span class="footer-city-pill">Kanata</span>
+          <span class="footer-city-pill">Barrhaven</span>
+          <span class="footer-city-pill">Orléans</span>
+          <span class="footer-city-pill">Nepean</span>
+          <span class="footer-city-pill">Gloucester</span>
+          <span class="footer-city-pill">Stittsville</span>
+          <span class="footer-city-pill">Manotick</span>
+          <span class="footer-city-pill">Rockland</span>
+          <span class="footer-city-pill">&amp; Surrounding Areas</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom-clean">
+        <span>&copy; 2026 Noble Detailing. All rights reserved.</span>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BOOKING & QUOTE MODAL POPUP
+  ========================================================================== -->
+  <div class="modal-backdrop" id="quoteModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 1.2rem;">
+        <div class="eyebrow" style="margin-bottom: 0.5rem;">Online Appointments &amp; Quotes</div>
+        <h3 style="font-size: 1.35rem; margin-bottom: 0.3rem;">Schedule Your Detail</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">
+          Book instantly with live studio availability or submit a custom quote request.
+        </p>
+      </div>
+
+      <!-- Prominent Square Appointments Direct Booking Button -->
+      <a href="https://book.squareup.com/appointments/aviw9iwklbozex/location/LPQ4VRJF58DM6/services" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; padding: 0.85rem 1.2rem; font-size: 0.92rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35); margin-bottom: 1.2rem;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>Book Instantly on Square</span>
+      </a>
+
+      <!-- Divider -->
+      <div style="display: flex; align-items: center; gap: 0.8rem; margin: 1.2rem 0; opacity: 0.6;">
+        <div style="flex: 1; height: 1px; background: var(--border-hairline);"></div>
+        <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">or request a callback quote</span>
+        <div style="flex: 1; height: 1px; background: var(--border-hairline);"></div>
+      </div>
+
+      <!-- Netlify Direct Callback / Quote Form -->
+      <form id="bookingForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 0.9rem;">
+        <input type="hidden" name="form-name" value="booking" />
+        <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <div>
+          <label class="form-label-clean">Your Name</label>
+          <input type="text" name="name" class="form-control-clean" placeholder="e.g. Alexander Vance" required />
+        </div>
+        <div>
+          <label class="form-label-clean">Phone Number</label>
+          <input type="tel" name="phone" class="form-control-clean" placeholder="e.g. (613) 879-9461" required />
+        </div>
+        <div>
+          <label class="form-label-clean">Selected Package / Vehicle</label>
+          <input type="text" name="service" id="serviceField" class="form-control-clean" value="General Quote Request" required />
+        </div>
+        <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 0.3rem;">Send Callback Quote Request</button>
+      </form>
+
+      <!-- Direct Phone Quick Contact -->
+      <div style="margin-top: 1.2rem; text-align: center; border-top: 1px solid var(--border-hairline); padding-top: 0.9rem;">
+        <a href="tel:+16138799461" style="font-size: 0.82rem; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 0.4rem;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--accent-gold)" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Immediate inquiries: <strong>+1 (613) 879-9461</strong></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="text" name="service" />
+    <input name="bot-field" />
+  </form>
+
+  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <input type="text" name="vehicle" />
+    <input type="text" name="package" />
+    <input type="text" name="location" />
+    <textarea name="notes"></textarea>
+    <input name="bot-field" />
+  </form>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
