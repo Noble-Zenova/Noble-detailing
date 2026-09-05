@@ -7,16 +7,21 @@
   <meta name="description" content="Master-grade paint correction, interior restoration, and 9H ceramic coating for luxury and exotic vehicles. Mobile on-site and studio appointments." />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Noble Detailing | Luxury Auto Detailing" />
-  <meta property="og:description" content="Master-grade paint correction, interior restoration, and 9H ceramic coating." />
-  <meta property="og:image" content="assets/car_showcase.jpg" />
+  <!-- Open Graph & Meta -->
+  <link rel="canonical" href="https://nobledetailing.ca/" />
+  <meta property="og:title" content="Noble Detailing | Luxury Auto Detailing & Ceramic Protection" />
+  <meta property="og:description" content="Master-grade paint correction, interior restoration, and certified ceramic coatings in Ottawa & Gatineau." />
+  <meta property="og:url" content="https://nobledetailing.ca/" />
+  <meta property="og:image" content="https://nobledetailing.ca/assets/car_showcase.jpg" />
   <meta property="og:type" content="website" />
 
-  <!-- Google Fonts: Plus Jakarta Sans & Cinzel (Luxury Minimalist Palette) -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c5a059'%3E%3Cpath d='M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Critical Base Styles (Prevents FOUC) -->
   <style>
@@ -33,17 +38,13 @@
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     "name": "Noble Detailing",
-    "image": "assets/car_showcase.jpg",
-    "description": "Master-grade automotive detailing, multi-stage paint correction, and 9H ceramic quartz coatings. Serving Ottawa, Gatineau, Kanata, Barrhaven, and Orleans.",
+    "image": "https://nobledetailing.ca/assets/car_showcase.jpg",
+    "url": "https://nobledetailing.ca",
+    "description": "Master-grade automotive detailing, multi-stage paint correction, and certified ceramic quartz coatings. Serving Ottawa, Gatineau, Kanata, Barrhaven, and Orleans.",
     "telephone": "+16138799461",
     "email": "almasrirame444@gmail.com",
     "areaServed": ["Ottawa", "Gatineau", "Kanata", "Barrhaven", "Orleans", "Nepean"],
-    "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "128"
-    }
+    "priceRange": "$$"
   }
   </script>
 </head>
@@ -132,7 +133,7 @@
     <section class="hero-stage" id="hero" aria-label="Hero Showcase">
       <!-- Background Video Asset -->
       <div class="hero-video-wrap">
-        <video id="heroVideo" src="assets/car.mp4" autoplay muted playsinline></video>
+        <video id="heroVideo" src="assets/car.mp4" poster="assets/car_showcase.jpg" width="1920" height="1080" autoplay muted playsinline></video>
       </div>
 
       <!-- Subtle Vignette -->
@@ -190,40 +191,40 @@
         </div>
 
         <div class="showcase-stage-clean">
-          <img src="assets/car_showcase.jpg" alt="Noble Detailing Vehicle Stage" />
+          <img src="assets/car_showcase.jpg" alt="Noble Detailing Vehicle Stage" width="1200" height="675" loading="lazy" />
 
-          <!-- Hotspots -->
-          <div class="hotspot-clean hotspot-clean-1">
-            <div class="hotspot-ring"><div class="hotspot-core"></div></div>
-            <div class="hotspot-popover">
-              <h4>Multi-Stage Paint Correction</h4>
-              <p>Eliminates swirl marks, clear coat oxidation, and micro-scratches for a flawless mirror reflection.</p>
-            </div>
-          </div>
+          <!-- Hotspots (Keyboard Accessible Buttons) -->
+          <button type="button" class="hotspot-clean hotspot-clean-1" aria-label="Multi-Stage Paint Correction Details" aria-expanded="false">
+            <span class="hotspot-ring"><span class="hotspot-core"></span></span>
+            <span class="hotspot-popover">
+              <strong>Multi-Stage Paint Correction</strong>
+              <small style="display:block; margin-top: 0.3rem; color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4;">Eliminates swirl marks, clear coat oxidation, and micro-scratches for a flawless mirror reflection.</small>
+            </span>
+          </button>
 
-          <div class="hotspot-clean hotspot-clean-2">
-            <div class="hotspot-ring"><div class="hotspot-core"></div></div>
-            <div class="hotspot-popover">
-              <h4>Cabin Steam Sanitization</h4>
-              <p>210°F hot vapor extraction, deep carpet shampoo, and matte leather rejuvenation.</p>
-            </div>
-          </div>
+          <button type="button" class="hotspot-clean hotspot-clean-2" aria-label="Cabin Steam Sanitization Details" aria-expanded="false">
+            <span class="hotspot-ring"><span class="hotspot-core"></span></span>
+            <span class="hotspot-popover">
+              <strong>Cabin Steam Sanitization</strong>
+              <small style="display:block; margin-top: 0.3rem; color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4;">210°F hot vapor extraction, deep carpet shampoo, and matte leather rejuvenation.</small>
+            </span>
+          </button>
 
-          <div class="hotspot-clean hotspot-clean-3">
-            <div class="hotspot-ring"><div class="hotspot-core"></div></div>
-            <div class="hotspot-popover">
-              <h4>9H Ceramic Quartz Shield</h4>
-              <p>Permanent hydrophobic molecular barrier against bird etchings, road salts, and UV damage.</p>
-            </div>
-          </div>
+          <button type="button" class="hotspot-clean hotspot-clean-3" aria-label="9H Ceramic Quartz Shield Details" aria-expanded="false">
+            <span class="hotspot-ring"><span class="hotspot-core"></span></span>
+            <span class="hotspot-popover">
+              <strong>9H Ceramic Quartz Shield</strong>
+              <small style="display:block; margin-top: 0.3rem; color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4;">Permanent hydrophobic molecular barrier against bird etchings, road salts, and UV damage.</small>
+            </span>
+          </button>
 
-          <div class="hotspot-clean hotspot-clean-4">
-            <div class="hotspot-ring"><div class="hotspot-core"></div></div>
-            <div class="hotspot-popover">
-              <h4>Precision Wheel Decontamination</h4>
-              <p>Non-acid iron breakdown dissolves embedded brake dust; tire satin finish prevents browning.</p>
-            </div>
-          </div>
+          <button type="button" class="hotspot-clean hotspot-clean-4" aria-label="Precision Wheel Decontamination Details" aria-expanded="false">
+            <span class="hotspot-ring"><span class="hotspot-core"></span></span>
+            <span class="hotspot-popover">
+              <strong>Precision Wheel Decontamination</strong>
+              <small style="display:block; margin-top: 0.3rem; color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4;">Non-acid iron breakdown dissolves embedded brake dust; tire satin finish prevents browning.</small>
+            </span>
+          </button>
         </div>
 
         <!-- Bento Highlights -->
@@ -256,19 +257,17 @@
         </div>
 
         <div class="slider-stage-clean" id="sliderStage">
-          <img src="assets/after_paint.jpg" alt="Polished Mirror Paint Finish" class="slider-layer-after" />
-          <span class="slider-pill-tag tag-after">After • Flawless Gloss</span>
-
+          <img src="assets/after_paint.jpg" alt="Polished Mirror Paint Finish" class="slider-layer-after" width="1200" height="675" loading="lazy" />
           <div class="slider-layer-before-wrap" id="sliderBeforeWrap">
-            <img src="assets/before_paint.jpg" alt="Swirled Paint Before Correction" />
+            <img src="assets/before_paint.jpg" alt="Swirled and Scratched Paint Before Correction" width="1200" height="675" loading="lazy" />
           </div>
-          <span class="slider-pill-tag tag-before">Before • Swirls & Scratches</span>
-
-          <div class="slider-divider-clean" id="sliderDivider">
-            <div class="divider-knob">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
+          <div class="slider-divider-clean" id="sliderDivider" role="slider" aria-label="Before and after comparison slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+            <div class="slider-handle-clean">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
                 <polyline points="15 18 9 12 15 6"></polyline>
-                <polyline points="9 18 3 12 9 6" style="transform: rotate(180deg); transform-origin: center;"></polyline>
+              </svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </div>
           </div>
@@ -291,50 +290,51 @@
           <!-- Package 1 -->
           <div class="package-item">
             <div class="package-item-header">
-              <h3 class="package-item-title">Interior Deep Detail</h3>
-              <div class="package-item-meta">⏱ 2 hr 30 min • Full Cabin Focus</div>
-              <div class="package-item-price">CA$139 <span>/ sedan</span></div>
+              <h3 class="package-item-title">Interior & Basic Exterior</h3>
+              <div class="package-item-meta">⏱ 2 hr • Complete Overhaul</div>
+              <div class="package-item-price">CA$199 <span>/ sedan</span></div>
             </div>
             <ul class="package-item-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Deep vacuum & compressed air purge</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 210°F vapor steam disinfection</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Leather conditioning & matte finish</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Carpet & floor mat stain extraction</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Deep shampoo &amp; hot-water extraction</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 210°F vapor steam sanitization</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Foam hand wash &amp; micro-fiber dry</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Hydrophobic spray sealant &amp; tire dressing</li>
             </ul>
-            <button class="btn btn-secondary" style="width: 100%;" data-open-modal data-service="Interior Deep Detail (CA$139)">Book Package</button>
+            <button class="btn btn-secondary" style="width: 100%;" data-open-modal data-service="Interior & Basic Exterior Detail (CA$199)">Book Package</button>
           </div>
 
           <!-- Package 2 (Featured) -->
           <div class="package-item featured">
             <div class="package-item-header">
-              <div style="font-size: 0.7rem; font-weight: 700; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem;">Most Recommended</div>
+              <div style="font-size: 0.7rem; font-weight: 700; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem;">Most Requested</div>
               <h3 class="package-item-title">The Noble Full Royal</h3>
-              <div class="package-item-meta">⏱ 3 hr 30 min • Complete Treatment</div>
-              <div class="package-item-price">CA$239 <span>/ sedan</span></div>
+              <div class="package-item-meta">⏱ 2 hr 30 min • The Royal Restoration</div>
+              <div class="package-item-price">CA$259 <span>/ sedan</span></div>
             </div>
             <ul class="package-item-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full interior steam & leather detail</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Iron decontamination & clay bar</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Machine gloss enhancement polish</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 6-Month protective paste wax</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full interior steam &amp; fabric extraction</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Iron decontamination &amp; clay bar treatment</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Single-stage clarity gloss machine polish</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Multi-month protective wax &amp; engine wipe</li>
             </ul>
-            <button class="btn btn-gold" style="width: 100%;" data-open-modal data-service="The Noble Full Royal Package (CA$239)">Book Royal Package</button>
+            <button class="btn btn-gold" style="width: 100%;" data-open-modal data-service="The Noble Full Royal Package (CA$259)">Book Royal Package</button>
           </div>
 
           <!-- Package 3 -->
           <div class="package-item">
             <div class="package-item-header">
-              <h3 class="package-item-title">The Mirror Finish</h3>
-              <div class="package-item-meta">⏱ 6 hr • Correction & 9H Ceramic</div>
-              <div class="package-item-price">CA$599 <span>/ sedan</span></div>
+              <div style="font-size: 0.7rem; font-weight: 700; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem;">Winter Protection</div>
+              <h3 class="package-item-title">Paint Enhancement & 7-Year Ceramic</h3>
+              <div class="package-item-meta">Built for Ottawa Winters • 7-Year Shield</div>
+              <div class="package-item-price">CA$699 <span>/ sedan</span></div>
             </div>
             <ul class="package-item-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 2-Stage compound & jeweling polish</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 3-Year certified 9H ceramic quartz</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Hydrophobic windshield rain barrier</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Wheel faces ceramic coated</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 1-Step single-stage paint clarity polish</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Certified 7-year ceramic coating</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Hydrophobic windshield rain repellent</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Wheel face ceramic protection</li>
             </ul>
-            <button class="btn btn-secondary" style="width: 100%;" data-open-modal data-service="The Mirror Finish Ceramic (CA$599)">Book Ceramic Polish</button>
+            <button class="btn btn-secondary" style="width: 100%;" data-open-modal data-service="Paint Enhancement & 7-Year Ceramic (CA$699)">Book 7-Year Ceramic</button>
           </div>
         </div>
       </div>
@@ -357,30 +357,30 @@
               1. Select Vehicle Size
             </div>
             <div class="vehicle-selector-row">
-              <div class="vehicle-btn selected" data-vehicle="sedan">
+              <button type="button" class="vehicle-btn selected" data-vehicle="sedan" aria-label="Select Sedan or Coupe">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                   <path d="M3 15h18l-2-6H5l-2 6zM6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
                 </svg>
                 <span>Sedan / Coupe</span>
-              </div>
-              <div class="vehicle-btn" data-vehicle="suv">
+              </button>
+              <button type="button" class="vehicle-btn" data-vehicle="suv" aria-label="Select SUV or Crossover">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                   <path d="M2 14h20l-1-7H3l-1 7zM6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
                 </svg>
                 <span>SUV / Cross</span>
-              </div>
-              <div class="vehicle-btn" data-vehicle="truck">
+              </button>
+              <button type="button" class="vehicle-btn" data-vehicle="truck" aria-label="Select Truck or Van">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                   <path d="M1 14h15v-5H6L1 14zm15 0h7v-4h-7v4zm-11 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm14 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
                 </svg>
                 <span>Truck / Van</span>
-              </div>
-              <div class="vehicle-btn" data-vehicle="exotic">
+              </button>
+              <button type="button" class="vehicle-btn" data-vehicle="exotic" aria-label="Select Exotic or Supercar">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                   <path d="M3 13l2-5h14l2 5v4H3v-4zm4 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                 </svg>
                 <span>Supercar</span>
-              </div>
+              </button>
             </div>
 
             <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; color: #ffffff;">
@@ -389,12 +389,12 @@
             <div>
               <label class="tier-item-radio selected">
                 <div>
-                  <strong style="font-size: 0.92rem; color: #fff;">Interior & Exterior Detail</strong>
-                  <div style="font-size: 0.78rem; color: var(--text-muted);">Deep interior vacuum, steam sanitize, foam wash, spray sealant</div>
+                  <strong style="font-size: 0.92rem; color: #fff;">Interior & Basic Exterior Detail</strong>
+                  <div style="font-size: 0.78rem; color: var(--text-muted);">Deep interior extraction, steam sanitize, foam wash, spray sealant</div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.8rem;">
-                  <strong style="color: var(--accent-gold);">CA$179</strong>
-                  <input type="radio" name="clean_tier" value="179" data-price="179" data-name="Interior & Exterior Detail" checked />
+                  <strong style="color: var(--accent-gold);">CA$199</strong>
+                  <input type="radio" name="clean_tier" value="199" data-price="199" data-name="Interior & Basic Exterior Detail" checked />
                 </div>
               </label>
 
@@ -404,19 +404,30 @@
                   <div style="font-size: 0.78rem; color: var(--text-muted);">Interior steam extraction + clay bar + machine gloss polish + wax</div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.8rem;">
-                  <strong style="color: var(--accent-gold);">CA$239</strong>
-                  <input type="radio" name="clean_tier" value="239" data-price="239" data-name="The Noble Full Royal Package" />
+                  <strong style="color: var(--accent-gold);">CA$259</strong>
+                  <input type="radio" name="clean_tier" value="259" data-price="259" data-name="The Noble Full Royal Package" />
                 </div>
               </label>
 
               <label class="tier-item-radio">
                 <div>
-                  <strong style="font-size: 0.92rem; color: #fff;">The Mirror Finish (Polish & Ceramic)</strong>
-                  <div style="font-size: 0.78rem; color: var(--text-muted);">2-stage clear coat correction + 3-year certified 9H ceramic shield</div>
+                  <strong style="font-size: 0.92rem; color: #fff;">Paint Enhancement & 7-Year Ceramic</strong>
+                  <div style="font-size: 0.78rem; color: var(--text-muted);">1-step paint clarity machine polish + 7-year Ottawa winter ceramic shield</div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.8rem;">
-                  <strong style="color: var(--accent-gold);">CA$599</strong>
-                  <input type="radio" name="clean_tier" value="599" data-price="599" data-name="The Mirror Finish (Polish & Ceramic)" />
+                  <strong style="color: var(--accent-gold);">CA$699</strong>
+                  <input type="radio" name="clean_tier" value="699" data-price="699" data-name="Paint Enhancement & 7-Year Ceramic" />
+                </div>
+              </label>
+
+              <label class="tier-item-radio">
+                <div>
+                  <strong style="font-size: 0.92rem; color: #fff;">The 2 Step Mirror Finish (Polish & Ceramic)</strong>
+                  <div style="font-size: 0.78rem; color: var(--text-muted);">2-stage clear coat compounding & jewel polish + 9H ceramic coating</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.8rem;">
+                  <strong style="color: var(--accent-gold);">CA$899</strong>
+                  <input type="radio" name="clean_tier" value="899" data-price="899" data-name="The 2 Step Mirror Finish (Polish & Ceramic)" />
                 </div>
               </label>
             </div>
@@ -442,11 +453,11 @@
             <div>
               <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.3rem;">Selected Configuration</div>
               <h3 id="summaryVehicle" style="font-size: 1.1rem; color: #fff; margin-bottom: 0.2rem;">Sedan / Coupe</h3>
-              <p id="summaryTier" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Interior & Exterior Detail (CA$179)</p>
+              <p id="summaryTier" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Interior & Basic Exterior Detail (CA$199)</p>
               
               <div style="border-top: 1px solid var(--border-hairline); padding-top: 1rem;">
                 <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Estimated Price</span>
-                <div class="summary-total-clean" id="summaryTotal">CA$179.00</div>
+                <div class="summary-total-clean" id="summaryTotal">CA$199.00</div>
               </div>
             </div>
 
@@ -582,13 +593,13 @@
   <!-- ==========================================================================
        9. BOOKING & QUOTE MODAL POPUP
   ========================================================================== -->
-  <div class="modal-backdrop" id="quoteModal" aria-hidden="true">
+  <div class="modal-backdrop" id="quoteModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-dialog">
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
       
       <div style="text-align: center; margin-bottom: 1.2rem;">
         <div class="eyebrow" style="margin-bottom: 0.5rem;">Online Appointments &amp; Quotes</div>
-        <h3 style="font-size: 1.35rem; margin-bottom: 0.3rem;">Schedule Your Detail</h3>
+        <h3 id="modalTitle" style="font-size: 1.35rem; margin-bottom: 0.3rem;">Schedule Your Detail</h3>
         <p style="font-size: 0.85rem; color: var(--text-secondary);">
           Book instantly with live studio availability or submit a custom quote request.
         </p>

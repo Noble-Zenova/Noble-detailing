@@ -7,16 +7,21 @@
   <meta name="description" content="Contact Noble Detailing concierge for studio appointments and mobile on-site service bookings. Direct phone, email, and live booking requests." />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Contact Noble Detailing | Booking Concierge" />
-  <meta property="og:description" content="Schedule your bespoke studio appointment or mobile detailing service." />
-  <meta property="og:image" content="assets/car_showcase.jpg" />
+  <!-- Open Graph & Meta -->
+  <link rel="canonical" href="https://nobledetailing.ca/contact.html" />
+  <meta property="og:title" content="Contact &amp; Booking Concierge | Noble Detailing" />
+  <meta property="og:description" content="Schedule your bespoke studio appointment or mobile detailing service in Ottawa &amp; Gatineau." />
+  <meta property="og:url" content="https://nobledetailing.ca/contact.html" />
+  <meta property="og:image" content="https://nobledetailing.ca/assets/car_showcase.jpg" />
   <meta property="og:type" content="website" />
 
-  <!-- Google Fonts: Plus Jakarta Sans & Cinzel -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c5a059'%3E%3Cpath d='M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Critical Base Styles (Prevents FOUC) -->
   <style>
@@ -55,7 +60,7 @@
           </svg>
           <span>+1 (613) 879-9461</span>
         </a>
-        <button class="btn btn-primary" data-open-modal data-service="Direct Contact Request">Get a Quote</button>
+        <button class="btn btn-primary" data-open-modal data-service="General Quote Request">Get a Quote</button>
       </div>
 
       <!-- Hamburger Button for Mobile -->
@@ -101,7 +106,7 @@
         </svg>
         <span>+1 (613) 879-9461</span>
       </a>
-      <button class="btn btn-gold" data-open-modal data-service="Direct Contact Request">Get a Quote</button>
+      <button class="btn btn-gold" data-open-modal data-service="General Quote Request">Get a Quote</button>
     </div>
   </div>
 
@@ -252,12 +257,13 @@
               <div>
                 <label class="form-label-clean">Select Desired Package</label>
                 <select name="package" class="form-control-clean" required>
-                  <option value="The Noble Full Royal Package (CA$239)">The Noble Full Royal Package — CA$239</option>
-                  <option value="Interior Deep Detail (CA$139)">Interior Deep Detail — CA$139</option>
-                  <option value="Interior & Exterior Detail (CA$179)">Interior & Exterior Detail — CA$179</option>
-                  <option value="The Mirror Finish (Polish & Ceramic) (CA$599)">The Mirror Finish (Polish & Ceramic) — CA$599</option>
-                  <option value="Exterior Essentials Wash (CA$49)">Exterior Essentials Wash — CA$49</option>
-                  <option value="Decontamination & Wax (CA$79)">Decontamination & Wax — CA$79</option>
+                  <option value="The Noble Full Royal Package (CA$259)">The Noble Full Royal Package — CA$259</option>
+                  <option value="Paint Enhancement & 7-Year Ceramic (CA$699)">Paint Enhancement &amp; 7-Year Ceramic — CA$699</option>
+                  <option value="The 2 Step Mirror Finish (Polish & Ceramic) (CA$899)">The 2 Step Mirror Finish (Polish &amp; Ceramic) — CA$899</option>
+                  <option value="Interior & Basic Exterior Detail (CA$199)">Interior &amp; Basic Exterior Detail — CA$199</option>
+                  <option value="Interior Deep Detail (CA$159)">Interior Deep Detail — CA$159</option>
+                  <option value="Decontamination & Wax (CA$120)">Decontamination &amp; Wax — CA$120</option>
+                  <option value="Exterior Essentials Wash (CA$79)">Exterior Essentials Wash — CA$79</option>
                 </select>
               </div>
 
@@ -331,13 +337,13 @@
   <!-- ==========================================================================
        BOOKING & QUOTE MODAL POPUP
   ========================================================================== -->
-  <div class="modal-backdrop" id="quoteModal" aria-hidden="true">
+  <div class="modal-backdrop" id="quoteModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-dialog">
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
       
       <div style="text-align: center; margin-bottom: 1.2rem;">
         <div class="eyebrow" style="margin-bottom: 0.5rem;">Online Appointments &amp; Quotes</div>
-        <h3 style="font-size: 1.35rem; margin-bottom: 0.3rem;">Schedule Your Detail</h3>
+        <h3 id="modalTitle" style="font-size: 1.35rem; margin-bottom: 0.3rem;">Schedule Your Detail</h3>
         <p style="font-size: 0.85rem; color: var(--text-secondary);">
           Book instantly with live studio availability or submit a custom quote request.
         </p>

@@ -11,19 +11,18 @@
   --bg-glass: rgba(12, 12, 16, 0.65);
   
   --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
-  --text-muted: #52525b;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
 
   --accent-gold: #c5a059;
   --accent-gold-hover: #d4af37;
   --accent-gold-subtle: rgba(197, 160, 89, 0.12);
-  --border-hairline: rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(255, 255, 255, 0.16);
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
   --border-gold: rgba(197, 160, 89, 0.3);
 
   --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Cinzel', serif;
 
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -98,7 +97,12 @@ img, video {
 }
 
 .section-space {
-  padding: clamp(4.5rem, 8vw, 8.5rem) 0;
+  padding: clamp(3rem, 5.5vw, 5.5rem) 0;
+}
+
+.subpage-hero + .section-space,
+main > .section-space:first-of-type {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
 }
 
 /* 3. ULTRA-PREMIUM FROSTED GLASS NAVIGATION */
@@ -651,7 +655,18 @@ img, video {
   position: absolute;
   z-index: 20;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
   -webkit-tap-highlight-color: transparent;
+}
+
+.hotspot-clean:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 4px;
+  border-radius: 50%;
 }
 
 .hotspot-clean::after {
@@ -986,9 +1001,17 @@ img, video {
   border-radius: var(--radius-sm);
   padding: 1rem 0.5rem;
   text-align: center;
+  font-family: inherit;
+  color: inherit;
   cursor: pointer;
+  width: 100%;
   transition: all var(--transition-fast);
   -webkit-tap-highlight-color: transparent;
+}
+
+.vehicle-btn:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
 }
 
 .vehicle-btn:hover {
@@ -1220,7 +1243,7 @@ img, video {
 
 /* Subpage Minimal Hero */
 .subpage-hero {
-  padding: clamp(7.5rem, 14vw, 10rem) 1.5rem clamp(3rem, 6vw, 4rem) 1.5rem;
+  padding: clamp(5.5rem, 8.5vw, 7rem) 1.5rem clamp(1.8rem, 3.5vw, 2.5rem) 1.5rem;
   text-align: center;
   border-bottom: 1px solid var(--border-hairline);
   background: radial-gradient(circle at 50% 0%, rgba(20, 20, 28, 0.5) 0%, var(--bg-main) 70%);

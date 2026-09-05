@@ -122,18 +122,26 @@ function initCleanHotspots() {
   const hotspots = document.querySelectorAll('.hotspot-clean');
   
   hotspots.forEach(hotspot => {
+    hotspot.setAttribute('aria-expanded', 'false');
     hotspot.addEventListener('click', (e) => {
       e.stopPropagation();
       const isActive = hotspot.classList.contains('active');
-      hotspots.forEach(h => h.classList.remove('active'));
+      hotspots.forEach(h => {
+        h.classList.remove('active');
+        h.setAttribute('aria-expanded', 'false');
+      });
       if (!isActive) {
         hotspot.classList.add('active');
+        hotspot.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
   document.addEventListener('click', () => {
-    hotspots.forEach(h => h.classList.remove('active'));
+    hotspots.forEach(h => {
+      h.classList.remove('active');
+      h.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 
@@ -232,8 +240,8 @@ function initCleanCalculator() {
   };
 
   let currentVehicle = 'sedan';
-  let currentTierPrice = 179;
-  let currentTierTitle = 'Interior & Exterior Detail';
+  let currentTierPrice = 199;
+  let currentTierTitle = 'Interior & Basic Exterior Detail';
 
   vehicleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -250,7 +258,7 @@ function initCleanCalculator() {
       const parent = radio.closest('.tier-item-radio');
       if (parent) parent.classList.add('selected');
 
-      currentTierPrice = parseFloat(radio.getAttribute('data-price')) || 179;
+      currentTierPrice = parseFloat(radio.getAttribute('data-price')) || 199;
       currentTierTitle = radio.getAttribute('data-name') || 'Detailing Tier';
       recalc();
     });
@@ -296,10 +304,18 @@ function initCleanFaq() {
     const trigger = row.querySelector('.faq-trigger');
     if (!trigger) return;
 
+    trigger.setAttribute('aria-expanded', 'false');
     trigger.addEventListener('click', () => {
       const isActive = row.classList.contains('active');
-      rows.forEach(r => r.classList.remove('active'));
-      if (!isActive) row.classList.add('active');
+      rows.forEach(r => {
+        r.classList.remove('active');
+        const trig = r.querySelector('.faq-trigger');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      });
+      if (!isActive) {
+        row.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 }
@@ -307,6 +323,8 @@ function initCleanFaq() {
 /* ==========================================================================
    6. MODAL & TOAST
    ========================================================================== */
+let lastActiveFocusElement = null;
+
 function initCleanModal() {
   const modal = document.getElementById('quoteModal');
   const closeBtn = document.getElementById('modalCloseBtn');
@@ -315,29 +333,61 @@ function initCleanModal() {
   document.querySelectorAll('[data-open-modal]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const service = btn.getAttribute('data-service') || 'General Inquiry';
+      lastActiveFocusElement = btn;
+      const service = btn.getAttribute('data-service') || 'General Quote Request';
       openModalWithService(service);
     });
   });
 
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    if (lastActiveFocusElement && typeof lastActiveFocusElement.focus === 'function') {
+      lastActiveFocusElement.focus();
+    }
+  }
+
   if (closeBtn && modal) {
-    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('active');
+      if (e.target === modal) closeModal();
     });
   }
 
   // Escape key to close modal
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-      modal.classList.remove('active');
+      closeModal();
     }
   });
+
+  // Focus trapping inside modal
+  if (modal) {
+    modal.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || !modal.classList.contains('active')) return;
+      const focusables = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          last.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === last) {
+          first.focus();
+          e.preventDefault();
+        }
+      }
+    });
+  }
 
   if (form) {
     form.addEventListener('submit', (e) => handleFormSubmit(e, form, {
       successMessage: 'Booking request received. A Noble concierge specialist will contact you shortly.',
-      onSuccess: () => { if (modal) modal.classList.remove('active'); },
+      onSuccess: () => { closeModal(); },
     }));
   }
 
@@ -379,7 +429,14 @@ function openModalWithService(serviceText) {
   const modal = document.getElementById('quoteModal');
   const input = document.getElementById('serviceField');
   if (input && serviceText) input.value = serviceText;
-  if (modal) modal.classList.add('active');
+  if (modal) {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    const firstInput = modal.querySelector('input:not([type="hidden"]), select, textarea');
+    if (firstInput) {
+      setTimeout(() => firstInput.focus(), 50);
+    }
+  }
 }
 
 function showCleanToast(msg) {
