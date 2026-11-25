@@ -1,0 +1,34 @@
+/* Integration styles only; the original booking stylesheet stays unchanged. */
+body {
+  min-height: 0;
+  display: flow-root;
+}
+
+/* Match the website's 1200px container and 19.2–32px responsive gutters.
+   Pixel limits preserve the same spacing despite the booking's 14px root font. */
+.wide,
+.split,
+.booking-tools {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(19.2px, 4vw, 32px);
+}
+
+.booking-tools {
+  margin: 0 auto;
+  padding-block: 16px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.booking-tools .home {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .booking-tools {
+    padding-block: 12px;
+  }
+}
