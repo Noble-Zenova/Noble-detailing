@@ -115,6 +115,10 @@ try {
   await page.locator('[data-booking-quote]').first().click();
   await expect(embedded.locator('h1')).toHaveText('Request a paint correction quote.');
   assert.equal(await page.locator('#quoteModal').getAttribute('aria-hidden'), 'true');
+  await embedded.getByRole('link', { name: 'Need help?' }).click();
+  await expect(page).toHaveURL(base + '/contact.html');
+  await expect(page.locator('header.nav-wrapper')).toHaveCount(1);
+  await expect(page.locator('footer.footer-clean')).toHaveCount(1);
   assert.deepEqual(errors, []);
-  console.log('Browser checks passed: package order, automatic advance, verified Club gate, counters, multi-car totals, separate quote, custom time, mobile layout. API responses were mocked.');
+  console.log('Browser checks passed: package order, automatic advance, verified Club gate, counters, multi-car totals, separate quote, custom time, mobile layout, and Need help navigation. API responses were mocked.');
 } finally { await browser?.close(); await new Promise(resolve => server.close(resolve)); }
