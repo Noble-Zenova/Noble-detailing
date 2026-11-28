@@ -443,8 +443,8 @@ export default async function handler(request, context) {
                 fail("Invalid month.");
             const dates = {},
                 count = input.vehicles?.length || 1;
-            if (!Number.isInteger(count) || count < 1 || count > 3)
-                fail("An appointment can take up to 3 vehicles.");
+            if (!Number.isInteger(count) || count < 1 || count > catalog.slotCapacity)
+                fail(`An appointment can take up to ${catalog.slotCapacity} vehicles.`);
             await Promise.all(
                 Array.from({ length: 31 }, async (_, index) => {
                     const day = index + 1;
@@ -467,7 +467,7 @@ export default async function handler(request, context) {
                                 0,
                             ) +
                                 count <=
-                                3
+                                catalog.slotCapacity
                                 ? slot
                                 : null;
                         }),

@@ -44,17 +44,16 @@ const NobleCatalog = (() => {
     if (location === 'mobile' && cars.length === 1) lines.push(['Mobile service fee', 29]);
     return { lines, total: lines.reduce((sum, [, amount]) => sum + amount, 0) };
   }
+  const slotCapacity = 2;
+  const arrivalTimes = ['0930', '1200', '1400', '1600', '1800'];
   function slots(date) {
-    const weekend = [0, 6].includes(new Date(date + 'T12:00:00Z').getUTCDay());
-    const result = [];
-    for (let minutes = weekend ? 630 : 480; minutes < 1320; minutes += 150) {
-      const hour = Math.floor(minutes / 60), minute = minutes % 60;
-      const time = String(hour).padStart(2, '0') + String(minute).padStart(2, '0') + '00';
-      result.push({ id: date + 'T' + time, time, label: `${hour % 12 || 12}:${String(minute).padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}` });
-    }
-    return result;
+    return arrivalTimes.map(arrival => {
+      const time = arrival + '00';
+      const hour = Number(arrival.slice(0, 2));
+      return { id: date + 'T' + time, time, label: `${hour % 12 || 12}:${arrival.slice(2)} ${hour >= 12 ? 'PM' : 'AM'}` };
+    });
   }
-  return { packages, vehicles, extras, sizeFee, extraMax, price, slots };
+  return { packages, vehicles, extras, sizeFee, extraMax, price, slots, slotCapacity };
 })();
 if (typeof module !== 'undefined') module.exports = NobleCatalog;
 else window.NOBLE_CATALOG = NobleCatalog;

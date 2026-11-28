@@ -24,11 +24,11 @@ No live email or payment was tested from this workspace: credentials were not su
 - Package IDs remain stable. Visible order: Royal, Interior & Exterior, Interior, Ceramic, Paint Correction, Tire Swap.
 - Paint Correction uses `/api/quotes`, skips membership/add-ons and does not reserve capacity.
 - `booking/catalog.js` is shared by the browser/server. The server validates choices and recalculates prices.
-- Each car has independent package, size, make/model and add-ons. Two or three cars receive $20 off each and share one address/date/slot. The $29 mobile fee is waived for 2+ cars.
+- Each car has independent package, size, make/model and add-ons. Two cars receive $20 off each and share one address/date/slot. The $29 mobile fee is waived for two cars.
 - Regular detailing size extras remain $19 for trucks and $29 for 7–8-seat SUVs/vans. Ceramic extras: sedan/coupe $0, SUV $59, truck/van $99, boat starting at $599. Final boat price depends on size and is labelled as an estimate.
 - Sedan/coupe seat/carpet treatment counters cap at four each. Other vehicles allow up to eight. Headlight and rim limits remain unchanged.
-- Standard arrivals are 150 minutes apart. Weekdays start at 8 AM; weekends start at 10:30 AM; last arrival is before 10 PM, America/Toronto time. **Weekday opening was not specified; 8 AM is an assumption to review with the business.** Change `catalog.slots()` if needed.
-- Each standard slot holds three cars, including multi-car bookings. Atomic conditional writes enforce capacity. Past slots are excluded.
+- Standard arrivals are at 9:30 AM, noon, 2 PM, 4 PM, and 6 PM daily in the America/Toronto time zone.
+- Each standard slot holds two cars, including multi-car bookings. Atomic conditional writes enforce capacity. Past slots are excluded.
 - Custom times are requests, explicitly subject to owner confirmation. They notify the owner and do not automatically consume standard capacity or promise availability.
 - Club is CAD $15 + $1.95 HST, charged as a $16.95 annual subscription. Only verified payment or verified email sign-in to an active subscription enables discounts. Subscription status is checked again when booking. Booking email must match the verified member email.
 - Idempotency keys prevent duplicate bookings on retries. If email fails, the request and reserved capacity are retained; retrying the same submission resends without reserving more cars. The interface reports failure instead of success. Inspect requests in the private `noble-production-requests` Blobs store and capacity in `noble-production-slots`. Releasing cancelled capacity currently requires removing its reservation ID from the slot record in Netlify Blobs.

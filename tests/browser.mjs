@@ -32,7 +32,8 @@ try {
     let body = {};
     if (pathname === '/api/session') body = { signedIn: paid, membershipActive: paid };
     if (pathname === '/api/availability') {
-      const date = input.month + '-28';
+      const [year, month] = input.month.split('-').map(Number);
+      const date = new Date(Date.UTC(year, month, 0)).toISOString().slice(0, 10);
       body = { dates: { [date]: catalog.slots(date) } };
     }
     if (pathname === '/api/bookings') {
@@ -56,8 +57,7 @@ try {
   await fill('model', 'Toyota Camry'); await next();
   await page.locator('[name="location"][value="shop"]').check(); await next();
   await page.locator('[data-action="date"]:not(:disabled)').last().click();
-  const labels = await page.locator('[data-action="slot"]').allTextContents();
-  assert.ok(labels.length > 4);
+  await expect(page.locator('[data-action="slot"]')).toHaveText(['9:30 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM']);
   await click('slot'); await next();
   await fill('fullName', 'Test Customer'); await fill('phone', '6135550123'); await fill('email', 'test@example.com'); await next();
   await click('join');
@@ -75,6 +75,7 @@ try {
   await page.locator('[name="vehicleType"][value="4"]').check();
   await fill('model', 'Honda CR-V'); await next();
   await page.locator('[data-action="extra-plus"][data-value="12"]').click(); await next();
+  await expect(page.locator('[data-action="review-add-car"]')).toHaveCount(0);
   assert.equal(await page.locator('.total-lines').getByText(/multi-car discount/).count(), 2);
   assert.match(await page.locator('.panel h2').first().innerText(), /\$782/);
   await page.locator('[name="agreed"]').check(); await next();
@@ -109,9 +110,13 @@ try {
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.screenshot({ path: path.join(root, 'test-results', 'packages-desktop.png'), fullPage: true });
-  await page.goto(base + '/booking.html');
   const embedded = page.frameLocator('#booking-frame');
-  await expect(embedded.locator('.card')).toHaveCount(6);
+  for (const name of ['Explore Packages', 'Price Calculator']) {
+    await page.goto(base + '/index.html');
+    await page.getByRole('link', { name, exact: true }).click();
+    await expect(page).toHaveURL(base + '/booking.html');
+    await expect(embedded.locator('.card')).toHaveCount(6);
+  }
   await page.locator('[data-booking-quote]').first().click();
   await expect(embedded.locator('h1')).toHaveText('Request a paint correction quote.');
   assert.equal(await page.locator('#quoteModal').getAttribute('aria-hidden'), 'true');
@@ -120,5 +125,5 @@ try {
   await expect(page.locator('header.nav-wrapper')).toHaveCount(1);
   await expect(page.locator('footer.footer-clean')).toHaveCount(1);
   assert.deepEqual(errors, []);
-  console.log('Browser checks passed: package order, automatic advance, verified Club gate, counters, multi-car totals, separate quote, custom time, mobile layout, and Need help navigation. API responses were mocked.');
+  console.log('Browser checks passed: homepage links, arrival times, two-car limit, package order, automatic advance, verified Club gate, counters, multi-car totals, separate quote, custom time, mobile layout, and Need help navigation. API responses were mocked.');
 } finally { await browser?.close(); await new Promise(resolve => server.close(resolve)); }

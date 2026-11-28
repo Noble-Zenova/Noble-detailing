@@ -27,7 +27,7 @@ export function pastSlot(date, time) {
   return date < dateNow() || (date === dateNow() && time <= now);
 }
 export function cars(input) {
-  if (!Array.isArray(input) || !input.length || input.length > 3) fail('An appointment can take up to 3 vehicles.');
+  if (!Array.isArray(input) || !input.length || input.length > catalog.slotCapacity) fail(`An appointment can take up to ${catalog.slotCapacity} vehicles.`);
   return input.map(item => {
     if (!Number.isInteger(item.packageId) || !catalog.packages[item.packageId] || item.packageId === 4) fail('Choose a booking package. Paint correction requires a quote.');
     if (!Number.isInteger(item.vehicleType) || !catalog.vehicles[item.vehicleType] || (item.vehicleType === 5 && item.packageId !== 3)) fail('Choose a valid vehicle type.');
@@ -84,7 +84,7 @@ export async function reserve(store, slotId, reservationId, count) {
     const record = await store.getWithMetadata(slotId, { type: 'json' });
     const reservations = record?.data || {};
     if (reservations[reservationId]) return;
-    if (Object.values(reservations).reduce((a, b) => a + b, 0) + count > 3) fail('That time no longer has enough room. Choose another slot.', 409);
+    if (Object.values(reservations).reduce((a, b) => a + b, 0) + count > catalog.slotCapacity) fail('That time no longer has enough room. Choose another slot.', 409);
     const result = await store.setJSON(slotId, { ...reservations, [reservationId]: count }, record ? { onlyIfMatch: record.etag } : { onlyIfNew: true });
     if (result.modified) return;
   }

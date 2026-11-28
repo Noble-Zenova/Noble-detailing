@@ -13,7 +13,7 @@ const stepNames = [
     "Add-ons",
     "Confirm",
 ];
-const { packages, vehicles, extras, sizeFee, extraMax } = window.NOBLE_CATALOG;
+const { packages, vehicles, extras, sizeFee, extraMax, slotCapacity } = window.NOBLE_CATALOG;
 const shop = "138 Wescar Lane, Unit 2, Kanata";
 const directions =
     "https://www.google.com/maps/search/?api=1&query=" +
@@ -262,7 +262,7 @@ function locationPage() {
                 locationOptions +
                 `<div class="box stack"><p class="muted">KANATA</p><h2>138 Wescar Lane</h2><p>Unit 2</p>
       <p class="muted">3 min from Tanger Outlets<br>8 min from Canadian Tire Centre</p>${link("Get directions ↗", directions)}</div>
-      <p class="muted">Open 7 days · until 10 PM<br>Weekends from 10:30 AM</p>`,
+      <p class="muted">Standard arrivals daily · 9:30 AM–6:00 PM</p>`,
             footer(),
         );
     const a = state.address;
@@ -287,10 +287,10 @@ function locationPage() {
       ${field("Postal code *", "postal", a.postal, "K2V 0A1", 'required autocomplete="postal-code" maxlength="7" pattern="[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]"')}</div>
       <div class="box stack"><strong>How many cars?</strong><div class="count">
         <button type="button" data-action="remove-car" aria-label="Remove last vehicle" ${state.cars.length < 2 ? "disabled" : ""}>−</button>
-        <span>${state.cars.length} ${state.cars.length === 1 ? "car" : "cars"}</span><button type="button" data-action="add-car" aria-label="Add vehicle">+</button></div>
+        <span>${state.cars.length} ${state.cars.length === 1 ? "car" : "cars"}</span><button type="button" data-action="add-car" aria-label="Add vehicle" ${state.cars.length >= slotCapacity ? "disabled" : ""}>+</button></div>
         <p class="muted">Book 2+ cars at one address and the $29 mobile fee is waived.</p>
         ${state.cars.length > 1 ? state.cars.map((item, i) => `<button class="link" type="button" data-action="edit-car" data-value="${i}">Edit vehicle ${i + 1} · ${esc(item.model || packages[item.packageId][0])}</button>`).join("") : ""}
-        ${btn("+ Add another vehicle", "add-car")}</div>
+        ${state.cars.length < slotCapacity ? btn("+ Add another vehicle", "add-car") : `<p class="muted">Maximum ${slotCapacity} cars per appointment.</p>`}</div>
       <p class="muted">Please make space in the driveway and remove valuables.</p>`,
         footer(),
     );
@@ -331,7 +331,7 @@ function calendarPage() {
               : ""
       }
       ${state.date ? `<label class="field">Or request a custom arrival time<input type="time" name="customTime" min="08:00" max="21:59" value="${state.slot?.custom ? esc(state.slot.time) : ""}"></label><p class="muted">Custom times are requests and require confirmation from our team.</p>` : ""}
-      <p class="muted">${config.demo ? "Sample availability for this demo." : "Only available slots appear."} All times are local.<br>Open 7 days · until 10 PM<br>Weekends start at 10:30 AM</p>`,
+      <p class="muted">${config.demo ? "Sample availability for this demo." : "Only available slots appear."} All times are local.<br>Standard arrivals daily · 9:30 AM–6:00 PM</p>`,
         footer(),
     );
 }
@@ -450,7 +450,7 @@ function reviewPage() {
       ${row("WHEN", esc(appointment()), 4)}
       ${row("YOUR DETAILS", esc(state.contact.fullName + " · " + state.contact.email), 5)}
       ${row("ADD-ONS", selected.map(esc).join("<br>") || "None selected", 7)}
-    </dl><div class="gold-card"><h2>Service total: ${money(estimate.total)} + HST</h2><dl class="total-lines">${estimate.lines.map(([label, amount]) => `<div><dt>${esc(label)}</dt><dd>${amount < 0 ? "−" : ""}${money(Math.abs(amount))}</dd></div>`).join("")}</dl>${state.cars.some((item) => item.vehicleType === 5) ? "<p>Boat pricing is a starting estimate and depends on size.</p>" : ""}</div><div class="box stack"><strong>Want to add another car? Save $20 on each car ($40 off both)</strong>${state.cars.length < 3 ? btn("Yes, add another car", "review-add-car") : "<p>Maximum 3 cars per appointment.</p>"}<p class="muted">Choose a package, vehicle and add-ons for each car. Same appointment and location.</p></div><p class="muted">Pay for the service after the job. Membership is paid separately.</p>
+    </dl><div class="gold-card"><h2>Service total: ${money(estimate.total)} + HST</h2><dl class="total-lines">${estimate.lines.map(([label, amount]) => `<div><dt>${esc(label)}</dt><dd>${amount < 0 ? "−" : ""}${money(Math.abs(amount))}</dd></div>`).join("")}</dl>${state.cars.some((item) => item.vehicleType === 5) ? "<p>Boat pricing is a starting estimate and depends on size.</p>" : ""}</div>${state.cars.length < slotCapacity ? `<div class="box stack"><strong>Want to add another car? Save $20 on each car ($40 off both)</strong>${btn("Yes, add another car", "review-add-car")}<p class="muted">Choose a package, vehicle and add-ons for each car. Same appointment and location.</p></div>` : `<p class="muted">Maximum ${slotCapacity} cars per appointment.</p>`}<p class="muted">Pay for the service after the job. Membership is paid separately.</p>
     <label class="choice"><input type="checkbox" name="agreed" required ${state.agreed ? "checked" : ""}>
       <span><strong>I agree to the cancellation policy</strong><small class="muted">${policy}</small></span></label>`,
         footer(config.demo ? "Confirm demo booking →" : "Confirm booking →"),
@@ -984,9 +984,9 @@ document.addEventListener("click", async (event) => {
         case "review-add-car":
             state.returnToReview = true;
         case "add-car":
-            if (state.cars.length >= 3) {
+            if (state.cars.length >= slotCapacity) {
                 state.returnToReview = false;
-                return error("An appointment can take up to 3 vehicles.");
+                return error(`An appointment can take up to ${slotCapacity} vehicles.`);
             }
             state.car = state.cars.push(newCar()) - 1;
             state.pendingCar = true;

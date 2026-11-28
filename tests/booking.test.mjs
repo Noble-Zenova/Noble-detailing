@@ -31,18 +31,16 @@ test('server caps each sedan seat/carpet treatment at four and rejects tampered 
 test('quote packages and boats cannot bypass package validation', () => {
   assert.throws(() => cars([vehicle({ packageId: 4 })]), /quote/);
   assert.throws(() => cars([vehicle({ vehicleType: 5 })]), /vehicle/);
-  assert.throws(() => cars(Array(4).fill(vehicle())), /3 vehicles/);
+  assert.throws(() => cars(Array(3).fill(vehicle())), /2 vehicles/);
 });
-test('slots are exactly 150 minutes apart', () => {
+test('weekday and weekend slots use the five standard arrival times', () => {
   for (const d of ['2026-11-17', '2026-11-21']) {
-    const slots = catalog.slots(d);
-    const minutes = slot => +slot.time.slice(0, 2) * 60 + +slot.time.slice(2, 4);
-    for (let i = 1; i < slots.length; i++) assert.equal(minutes(slots[i]) - minutes(slots[i - 1]), 150);
-    assert.ok(slots.length > 4);
+    assert.deepEqual(catalog.slots(d).map(slot => slot.id), ['093000', '120000', '140000', '160000', '180000'].map(time => `${d}T${time}`));
   }
 });
 test('booking validates consent, mobile tire service, and custom-time requests', () => {
   assert.equal(booking(request()).vehicles.length, 1);
+  assert.throws(() => booking({ ...request(), slotId: date + 'T203000' }), /available future time/);
   assert.throws(() => booking({ ...request(), cancellationAccepted: false }), /policy/);
   assert.throws(() => booking({ ...request(), vehicles: [vehicle({ packageId: 5 })] }), /mobile/);
   assert.equal(booking({ ...request(), customTime: '14:15' }).slot.custom, true);
@@ -54,7 +52,7 @@ test('quotes require paint details, contact details and a mobile address', () =>
   assert.throws(() => quote({ ...q, condition: '' }), /required/);
   assert.throws(() => quote({ ...q, location: 'mobile', address: '' }), /required/);
 });
-test('atomic capacity allows only three cars under concurrent requests and retries are idempotent', async () => {
+test('atomic capacity allows only two cars under concurrent requests and retries are idempotent', async () => {
   let record = null, version = 0;
   const store = {
     async getWithMetadata() { return record ? { data: structuredClone(record), etag: String(version) } : null; },
@@ -64,9 +62,9 @@ test('atomic capacity allows only three cars under concurrent requests and retri
     },
   };
   const results = await Promise.allSettled(Array.from({ length: 8 }, (_, i) => reserve(store, 'slot', 'booking-' + i, 1)));
-  assert.equal(results.filter(result => result.status === 'fulfilled').length, 3);
-  assert.equal(Object.values(record).reduce((sum, value) => sum + value, 0), 3);
+  assert.equal(results.filter(result => result.status === 'fulfilled').length, 2);
+  assert.equal(Object.values(record).reduce((sum, value) => sum + value, 0), 2);
   const id = Object.keys(record)[0];
   await reserve(store, 'slot', id, 1);
-  assert.equal(Object.keys(record).length, 3);
+  assert.equal(Object.keys(record).length, 2);
 });
